@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AE_3._1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Notizbuch" MinHeight="400" MinWidth="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.75cm" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10">
+        </StackPanel>
+        
+        <DockPanel Grid.Row="1">
+            <Label DockPanel.Dock="Left" Content="Suchtext" VerticalAlignment="Center" />
+            <Button Name="btnSucheAufheben" DockPanel.Dock="Right" Content="X" FontWeight="Bold" Background="Red" Foreground="White" />
+            <Button Name="btnSuche" DockPanel.Dock="Right" Content="Suchen" />
+            <TextBox Name="tbxSuche" />
+        </DockPanel>
+
+        <TextBox Name="tbxNotiz" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="LightYellow" IsEnabled="False" AcceptsReturn="True" 
+VerticalScrollBarVisibility="Visible" FontFamily="Comic Sans MS" />
+
+        <ListBox Name="lbxNotizen" Grid.Row="2" DisplayMemberPath="Inhalt" SelectionChanged="lbxNotizen_SelectionChanged" />
+
+        <DockPanel Grid.Row="3" Grid.ColumnSpan="2"  LastChildFill="False">
+            
+            <Button Name="btnNeu" DockPanel.Dock="Left" Content="Neu" IsEnabled="False" />
+            <Button Name="btnLöschen" DockPanel.Dock="Left" Content="Löschen" IsEnabled="False" />
+            <Button Name="btnSpeichern" DockPanel.Dock="Left" Content="Speichern" IsEnabled="False" />
+            <Button Name="btnBeenden" DockPanel.Dock="Right" Content="Beenden" />
+            
+        </DockPanel>
+
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+            <TextBlock FontWeight="Bold" FontSize="16" Foreground="Green"> 
+            <!-- Inline-Objekte --> 
+            Notizen<LineBreak />                    <!-- Inline: Zeilenumbruch--> 
+            <Span FontSize="10" FontWeight="Light"> <!-- Inline: Span für neue Formatierung --> 
+            &#169; 2023 
+            <Italic>       <!-- Inline: Kursiv-Schrift -->
+            <Span Foreground="Blue">C#</Span> 
+                Anwendungsentwicklung 
+            </Italic> 
+            </Span>
+            </TextBlock>
+
+            <TextBlock Text="Kategorie" FontSize="14" Foreground="DarkGray" VerticalAlignment="Center" Margin="100 0 5 0" />
+
+            <ComboBox Name="cbxKategorie" Width="200" FontSize="14" SelectedIndex="0" VerticalContentAlignment="Center" Padding="10 0" 
+                      SelectionChanged="cbxKategorie_SelectionChanged">
+                <!--<ComboBoxItem Content="Item 1" />
+                <ComboBoxItem Content="Item 2" />
+                --><!-- alternativ --><!--
+                <ComboBoxItem>Item 3</ComboBoxItem>-->
+            </ComboBox>
+
+        </StackPanel>
 
     </Grid>
 </Window>
