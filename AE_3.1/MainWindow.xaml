@@ -27,17 +27,16 @@
             <TextBox Name="tbxSuche" />
         </DockPanel>
 
-        <TextBox Name="tbxNotiz" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="LightYellow" IsEnabled="False" AcceptsReturn="True" 
-VerticalScrollBarVisibility="Visible" FontFamily="Comic Sans MS" />
+        <TextBox Name="tbxNotiz" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="LightYellow" IsEnabled="False" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" FontFamily="Comic Sans MS" TextChanged="tbxNotiz_TextChanged" />
 
         <ListBox Name="lbxNotizen" Grid.Row="2" DisplayMemberPath="Inhalt" SelectionChanged="lbxNotizen_SelectionChanged" />
 
         <DockPanel Grid.Row="3" Grid.ColumnSpan="2"  LastChildFill="False">
             
-            <Button Name="btnNeu" DockPanel.Dock="Left" Content="Neu" IsEnabled="False" />
-            <Button Name="btnLöschen" DockPanel.Dock="Left" Content="Löschen" IsEnabled="False" />
-            <Button Name="btnSpeichern" DockPanel.Dock="Left" Content="Speichern" IsEnabled="False" />
-            <Button Name="btnBeenden" DockPanel.Dock="Right" Content="Beenden" />
+            <Button Name="btnNeu" DockPanel.Dock="Left" Content="Neu" IsEnabled="False" Click="btnNeu_Click" />
+            <Button Name="btnLöschen" DockPanel.Dock="Left" Content="Löschen" IsEnabled="False" Click="btnLöschen_Click" />
+            <Button Name="btnSpeichern" DockPanel.Dock="Left" Content="Speichern" IsEnabled="False" Click="btnSpeichern_Click" />
+            <Button Name="btnBeenden" DockPanel.Dock="Right" Content="Beenden" Click="btnBeenden_Click" />
             
         </DockPanel>
 
