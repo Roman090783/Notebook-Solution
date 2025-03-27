@@ -1,16 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
-    <RootNamespace>AE_3._1</RootNamespace>
+    <RootNamespace>AE_3._2</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Notebook.Share\Notebook.Share.csproj" />
-	</ItemGroup>
 
 </Project>
