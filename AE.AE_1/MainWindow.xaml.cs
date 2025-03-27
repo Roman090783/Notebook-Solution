@@ -1,13 +1,6 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AE.AE_1
 {
@@ -21,7 +14,7 @@ namespace AE.AE_1
             {
                 Content = "Klick mich",
                 Height = 50,
-                Width= 80 
+                Width = 80
             };
             grdMain.Children.Add(button);
 
