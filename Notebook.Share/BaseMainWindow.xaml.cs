@@ -21,8 +21,8 @@ namespace Notebook.Share
             listeAktualisieren();
         }
 
-        protected Notiz _AktuelleNotiz = null;
-        public Notiz AktuelleNotiz
+        protected Notiz? _AktuelleNotiz = null;
+        public Notiz? AktuelleNotiz
         {
             get => _AktuelleNotiz;
             set
@@ -104,22 +104,22 @@ namespace Notebook.Share
         // --------------------------------------------------------------------------------------
         // Abhängigkeitseigenschaften / öffentliche Eigenschaften, die Sie im XAML (Neu Project) binden können:
 
-    //    public static readonly DependencyProperty SucheTextProperty =
-    //DependencyProperty.Register("SucheText", typeof(string), typeof(BaseMainWindow));
+        //    public static readonly DependencyProperty SucheTextProperty =
+        //DependencyProperty.Register("SucheText", typeof(string), typeof(BaseMainWindow));
 
-    //    public string SucheText
-    //    {
-    //        get { return (string)GetValue(SucheTextProperty); }
-    //        set { SetValue(SucheTextProperty, value); }
-    //    }
+        //    public string SucheText
+        //    {
+        //        get { return (string)GetValue(SucheTextProperty); }
+        //        set { SetValue(SucheTextProperty, value); }
+        //    }
 
-    //    public static readonly DependencyProperty SucheButtonContentProperty =
-    //        DependencyProperty.Register("SucheButtonContent", typeof(string), typeof(BaseMainWindow));
+        //    public static readonly DependencyProperty SucheButtonContentProperty =
+        //        DependencyProperty.Register("SucheButtonContent", typeof(string), typeof(BaseMainWindow));
 
-    //    public string SucheButtonContent
-    //    {
-    //        get { return (string)GetValue(SucheButtonContentProperty); }
-    //        set { SetValue(SucheButtonContentProperty, value); }
-    //    }
+        //    public string SucheButtonContent
+        //    {
+        //        get { return (string)GetValue(SucheButtonContentProperty); }
+        //        set { SetValue(SucheButtonContentProperty, value); }
+        //    }
     }
 }

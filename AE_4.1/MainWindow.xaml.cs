@@ -20,6 +20,9 @@ namespace AE_4._1
             foreach (var kat in Enum.GetValues(typeof(Kategorie)))
                 cbxKategorie.Items.Add(kat);
 
+            // Setzen Sie die AktuelleNotiz auf eine neue Notiz, um die TextBox zu aktivieren
+            AktuelleNotiz = new Notiz(Kategorie.Sonstiges, "");
+
             listeAktualisieren();
         }
 
