@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Configuration;
+using System.Data;
+using System.Windows;
 
-namespace AE.AE_1
+namespace AE.Interfaces
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,0 +1,154 @@
+﻿<Window x:Class="AE_4._1.MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:local="clr-namespace:Notebook.Share"
+       mc:Ignorable="d"
+       Title="Notizbuch" MinHeight="400" MinWidth="600" Icon="/Bilder/Notizbuch.ico">
+    <Window.Resources>
+        <SolidColorBrush x:Key="rscFarbe" Color="LightYellow" />
+        <ControlTemplate TargetType="Button" x:Key="ctpButton">
+            <Grid>
+                <Rectangle x:Name="rctButton" Stroke="DarkGray" StrokeThickness="2" RadiusX="15" RadiusY="10">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush GradientOrigin="0.2, 0.3" RadiusX="0.7" RadiusY="0.9">
+                            <GradientStop Offset="0.1" Color="LightYellow" />
+                            <GradientStop Offset="0.7" Color="LightBlue" />
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="rctButton" Property="Fill">
+                        <Setter.Value>
+                            <RadialGradientBrush GradientOrigin="0.2, 0.3" RadiusX="0.7" RadiusY="0.9">
+                                <GradientStop Offset="0.1" Color="LightGray" />
+                                <GradientStop Offset="0.7" Color="DarkGray" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="rctButton" Property="Fill">
+                        <Setter.Value>
+                            <RadialGradientBrush GradientOrigin="0.2, 0.3" RadiusX="0.7" RadiusY="0.9">
+                                <GradientStop Offset="0.1" Color="LightYellow" />
+                                <GradientStop Offset="0.7" Color="SteelBlue" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="rctButton" Property="Fill">
+                        <Setter.Value>
+                            <RadialGradientBrush GradientOrigin="0.2, 0.3" RadiusX="0.7" RadiusY="0.9">
+                                <GradientStop Offset="0.1" Color="LightYellow" />
+                                <GradientStop Offset="0.7" Color="Blue" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+        <Style TargetType="Button" x:Key="styButton">
+            <Setter Property="Background" Value= "LightBlue" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="Template" Value="{StaticResource ctpButton}" />
+        </Style>
+        <Style TargetType="Button" x:Key="styButtonDisabled" BasedOn="{StaticResource styButton}">
+            <Setter Property="IsEnabled" Value="False" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.75cm" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10">
+        </StackPanel>
+
+        <DockPanel Grid.Row="1">
+            <Label DockPanel.Dock="Left" Content="Suchtext" VerticalAlignment="Center" />
+            <Button Name="btnSucheAufheben" DockPanel.Dock="Right" Content="X" FontWeight="Bold" Background="Red" Foreground="White" />
+            <Button Name="btnSuche" DockPanel.Dock="Right" Content="Suchen" />
+            <TextBox Name="tbxSuche" />
+        </DockPanel>
+
+        <TextBox Name="tbxNotiz" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Background="{StaticResource rscFarbe}" IsEnabled="False" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" FontFamily="Comic Sans MS" TextChanged="tbxNotiz_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <!-- Bedingung: TextBox ist aktiviert -->
+                                <Condition Property="IsEnabled" Value="True" />
+                                <!-- Bedingung: TextBox-Text ist leer -->
+                                <Condition Property="Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <!-- Wenn beide Bedingungen erfüllt sind, setze die Rahmenfarbe auf Rot -->
+                            <Setter Property="BorderBrush" Value="Red" />
+                            <!-- Wenn beide Bedingungen erfüllt sind, setze die Rahmendicke auf 5 -->
+                            <Setter Property="BorderThickness" Value="5" />
+                        </MultiTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <ListBox Name="lbxNotizen" Grid.Row="2" DisplayMemberPath="Inhalt" SelectionChanged="lbxNotizen_SelectionChanged" />
+
+        <DockPanel Grid.Row="3" Grid.ColumnSpan="2" LastChildFill="False">
+            <Button Name="btnNeu" DockPanel.Dock="Left" Content="Neu" Click="btnNeu_Click" Style="{StaticResource styButtonDisabled}" />
+            <Button Name="btnLöschen" DockPanel.Dock="Left" Content="Löschen" Click="btnLöschen_Click" Style="{StaticResource styButtonDisabled}" />
+            <Button Name="btnSpeichern" DockPanel.Dock="Left" Content="Speichern" Click="btnSpeichern_Click" Style="{StaticResource styButtonDisabled}" />
+            <Button Name="btnBeenden" DockPanel.Dock="Right" Content="Beenden" Click="btnBeenden_Click" Style="{StaticResource styButton}" />
+        </DockPanel>
+
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+            <Image Source="Bilder/Notizbuch.png" Height="32" Margin="0 0 10 0" />
+            <TextBlock FontWeight="Bold" FontSize="16" Foreground="Green">
+                Notizen<LineBreak />
+                <Span FontSize="10" FontWeight="Light">
+                    &#169; 2023
+                    <Italic>
+                        <Span Foreground="Blue">C#</Span>
+                        Anwendungsentwicklung
+                    </Italic>
+                </Span>
+            </TextBlock>
+            <TextBlock Text="Kategorie" FontSize="14" Foreground="{DynamicResource rscFarbe}" VerticalAlignment="Center" Margin="100 0 5 0" />
+            <ComboBox Name="cbxKategorie" Width="200" FontSize="14" SelectedIndex="0" VerticalContentAlignment="Center" Padding="10 0" SelectionChanged="cbxKategorie_SelectionChanged">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Style.Triggers>
+                            <Trigger Property="SelectedIndex" Value="0">
+                                <Setter Property="FontWeight" Value="Normal" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                            <Trigger Property="SelectedItem" Value="{x:Static local:Kategorie.Alle}">
+                                <Setter Property="FontWeight" Value="Normal" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>
