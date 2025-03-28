@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebook.Share", "Notebook.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AE_4_2_Datenbindungen", "..\AE_Aufgaben\AE_4_2_Datenbindungen.Listensteuerelementen\AE_4_2_Datenbindungen.csproj", "{98B65897-1AE2-26EF-4225-A435086BE43A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AE_5_ADO", "..\AE_Aufgaben\AE_5_ADO\AE_5_ADO.csproj", "{6A45D516-8102-32AF-845E-FD709CBCC140}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{98B65897-1AE2-26EF-4225-A435086BE43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98B65897-1AE2-26EF-4225-A435086BE43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98B65897-1AE2-26EF-4225-A435086BE43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A45D516-8102-32AF-845E-FD709CBCC140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A45D516-8102-32AF-845E-FD709CBCC140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A45D516-8102-32AF-845E-FD709CBCC140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A45D516-8102-32AF-845E-FD709CBCC140}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

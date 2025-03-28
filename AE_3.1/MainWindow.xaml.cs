@@ -1,4 +1,6 @@
-﻿using Notebook.Share;
+﻿// Dieses Projekt fintet Ihr auf Notebook.Share -> class BaseMainWindow und BaseMainWindow.xaml
+
+using Notebook.Share;
 
 namespace AE_3._1;
 
